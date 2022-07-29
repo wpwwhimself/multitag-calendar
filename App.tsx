@@ -1,20 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import React from 'react';
+import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { Calendar } from './components/Calendar.component';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: "center",
+    // alignItems: "center",
+    height: "100%",
   },
+  scroller: {
+    height: 500,
+  }
 });
+
+function App() {
+  return (
+    <View style={styles.container}>
+      <StatusBar translucent={false} style="light" />
+      <View style={{flex: 1}}>
+      </View>
+      <ScrollView style={styles.scroller}>
+        <Calendar />
+      </ScrollView>
+      <View style={{flex: 1}}>
+      </View>
+    </View>
+  );
+}
+
+export default App;
