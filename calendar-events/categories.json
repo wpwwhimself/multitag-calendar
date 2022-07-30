@@ -1,6 +1,8 @@
 {
-  "ćwiczenia" : { "level" : 1, "color" : "#ff00ff" },
+  "ćwiczenia" : { "level" : 2, "color" : "#ff00ff" },
+  "deska" : { "level" : 2, "color" : "#00ff55" },
   "dom" : { "level" : 1, "color" : "#00ff00" },
+  "m&b" : { "level" : 1, "color" : "#ff0000" },
   "nieopłacone" : { "level" : 3, "color" : "#552200" },
   "obowiązki" : { "level" : 2, "color" : "#ffff00" },
   "zespoły" : { "level" : 1, "color" : "#00ffff" }

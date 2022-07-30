@@ -15,6 +15,14 @@ const styles = StyleSheet.create({
   }
 });
 
+// TODO
+/*
+ * - add time to dates
+ * - open days to see event details
+ * - add dates
+ * - ???
+ */
+
 function App() {
   return (
     <View style={styles.container}>

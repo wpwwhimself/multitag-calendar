@@ -8,7 +8,7 @@ export function Calendar(){
 
   const month = [];
 
-  for(var i = 0; i < 52; i++) {
+  for(var i = 0; i < 60; i++) {
     month[i] = new Date(monday);
     month[i].setDate(monday.getDate() + 7*i);
   }
