@@ -21,7 +21,7 @@ function App() {
       <StatusBar translucent={false} style="light" />
       <View style={{flex: 1}}>
       </View>
-      <ScrollView style={styles.scroller}>
+      <ScrollView horizontal={true} style={styles.scroller}>
         <Calendar />
       </ScrollView>
       <View style={{flex: 1}}>

@@ -1,0 +1,28 @@
+{
+  "events" : [
+    {
+      "title" : "Wyjść z domu",
+      "datein" : "7.08.2022",
+      "cat1" : "dom",
+      "cat2" : "ćwiczenia"
+    },
+    {
+      "title" : "Otworzyć AAAA",
+      "datein" : "7.08.2022",
+      "cat1" : "zespoły"
+    },
+    {
+      "title" : "Posprzątać garaż",
+      "datein" : "10.08.2022",
+      "cat1" : "dom",
+      "cat2" : "obowiązki",
+      "cat3" : "nieopłacone"
+    },
+    {
+      "title" : "Próba",
+      "datein" : "13.08.2022",
+      "cat1" : "zespoły",
+      "repeat" : "weekly3"
+    }
+  ]
+}

@@ -2,15 +2,6 @@ import { View, StyleSheet } from 'react-native';
 import { Week } from './Week.component';
 import * as dateRefine from './dateRefine';
 
-const style = StyleSheet.create({
-  calendar: {
-    flex: 1,
-    justifyContent: "center" as const,
-    alignItems: "center" as const,
-    width: "100%",
-  }
-});
-
 export function Calendar(){
   const monday = new Date();
   monday.setDate(monday.getDate() - monday.getDay() + 1);
@@ -30,3 +21,13 @@ export function Calendar(){
     </View>
   )
 }
+
+const style = StyleSheet.create({
+  calendar: {
+    flex: 1,
+    flexDirection: "row" as const,
+    justifyContent: "center" as const,
+    alignItems: "center" as const,
+    width: "100%",
+  }
+});

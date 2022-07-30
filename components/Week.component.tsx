@@ -2,11 +2,6 @@ import { View } from 'react-native';
 import { DayCard } from './DayCard.component';
 import * as dateRefine from './dateRefine';
 
-const style = {
-  flex: 1,
-  flexDirection: "row" as const,
-}
-
 export function Week({startFrom} : {startFrom: Date}) {
   const week = [];
 
@@ -22,4 +17,9 @@ export function Week({startFrom} : {startFrom: Date}) {
       })}
     </View>
   )
+}
+
+const style = {
+  flex: 1,
+  flexDirection: "column" as const,
 }
