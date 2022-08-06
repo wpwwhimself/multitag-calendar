@@ -1,22 +1,20 @@
-import { View, Text, StyleSheet } from 'react-native';
 import eventsJSON from '../calendar-events/events.json';
-import categories from '../calendar-events/categories.json';
 import * as dateRefine from './dateRefine';
 
-/* get events one level shallower */
-const events = eventsJSON.events;
-
-type Event = {
+export type Event = {
   title: string,
   datein: string,
   dateout?: string,
+  hours?: string,
   cat1: string,
   cat2?: string,
   cat3?: string,
   repeat?: string
 }
 
-export function EventsOfTheDay({day} : {day: Date}) {
+export function eventsOfToday(day: Date) : Event[]{
+  const events = eventsJSON.events; //get events one level higher
+
   let eventToday : Event[] = [];
   let x : Event;
   for(x of events) {
@@ -40,7 +38,7 @@ export function EventsOfTheDay({day} : {day: Date}) {
         end: ("dateout" in x) ? Math.ceil(dateRefine.longToDate(x.dateout!).getTime()) : Infinity
       }
 
-      if(time.now > time.start && time.now < time.end){
+      if(time.now >= time.start && time.now < time.end){
         let diff : number | undefined;
         switch(repeat.mode){
           case "d":
@@ -55,42 +53,5 @@ export function EventsOfTheDay({day} : {day: Date}) {
       }
     }else if(dateRefine.long(day) == x.datein) eventToday.push(x);
   }
-
-  return(
-    <>
-    {eventToday.map((val: Event, ind: number) => {
-      return(
-        <View key={ind} style={style.event}>
-          <Text numberOfLines={1} style={style.eventText}>{val.title}</Text>
-          <View style={style.catContainer}>
-            <View style={[style.cat, {backgroundColor: categories[val.cat1 as keyof typeof categories].color}]} />
-            {"cat2" in val && 
-              <View style={[style.cat, {backgroundColor: categories[val.cat2 as keyof typeof categories].color}]} />
-            }
-            {"cat3" in val && 
-              <View style={[style.cat, {backgroundColor: categories[val.cat3 as keyof typeof categories].color}]} />
-            }
-          </View>
-        </View>
-      )
-    })}
-    </>
-  )
+  return eventToday;
 }
-
-const style = StyleSheet.create({
-  event: {
-    // flexDirection: "row",
-    width: "100%",
-  },
-  eventText: {
-    
-  },
-  catContainer: {
-    height: 2,
-    flexDirection: "row"
-  },
-  cat: {
-    flex: 1,
-  }
-});

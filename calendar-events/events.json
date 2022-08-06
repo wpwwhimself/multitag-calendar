@@ -29,6 +29,7 @@
     {
       "title" : "Śmieci",
       "datein" : "12.08.2022",
+      "hours" : "12:00-13:00",
       "cat1" : "dom",
       "cat2" : "obowiązki",
       "repeat" : "d3",

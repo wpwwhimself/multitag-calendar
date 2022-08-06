@@ -1,8 +1,12 @@
 import { View, StyleSheet } from 'react-native';
-import { Week } from './Week.component';
+import { Week } from './Week';
 import * as dateRefine from './dateRefine';
 
-export function Calendar(){
+type Props = {
+  detailsPopUp : any
+}
+
+export function Calendar({detailsPopUp} : Props){
   const monday = new Date();
   monday.setDate(monday.getDate() - monday.getDay() + 1);
 
@@ -16,7 +20,13 @@ export function Calendar(){
   return(
     <View style={style.calendar}>
       {month.map(val => {
-        return <Week key={dateRefine.short(val)} startFrom={val} />
+        return(
+          <Week
+            key={dateRefine.short(val)}
+            startFrom={val}
+            detailsPopUp={detailsPopUp}
+            />
+        )
       })}
     </View>
   )

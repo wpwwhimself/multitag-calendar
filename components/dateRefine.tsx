@@ -8,7 +8,9 @@ export function long(day: Date) : string {
 
 export function longToDate(day: string) : Date {
   const numbers = day.split(".");
-  return(new Date(`${numbers[2]}-${numbers[1]}-${numbers[0].padStart(2, "0")}`));
+  const ret = new Date(`${numbers[2]}-${numbers[1]}-${numbers[0].padStart(2, "0")}`);
+  ret.setHours(0,0,0,0);
+  return(ret);
 }
 
 export function diffInMonths(start: string, now: string) : number | undefined {

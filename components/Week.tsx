@@ -1,8 +1,13 @@
 import { View } from 'react-native';
-import { DayCard } from './DayCard.component';
+import { DayCard } from './DayCard';
 import * as dateRefine from './dateRefine';
 
-export function Week({startFrom} : {startFrom: Date}) {
+type Props = {
+  startFrom: Date,
+  detailsPopUp: any
+}
+
+export function Week({startFrom, detailsPopUp} : Props) {
   const week = [];
 
   for(var i = 0; i < 7; i++) {
@@ -13,7 +18,13 @@ export function Week({startFrom} : {startFrom: Date}) {
   return(
     <View style={style}>
       {week.map(val => {
-        return <DayCard key={dateRefine.short(val)} day={val} />
+        return(
+          <DayCard
+            key={dateRefine.short(val)}
+            day={val}
+            detailsPopUp={detailsPopUp}
+            />
+        )
       })}
     </View>
   )
