@@ -32,5 +32,5 @@ export function Week({startFrom, detailsPopUp} : Props) {
 
 const style = {
   flex: 1,
-  flexDirection: "column" as const,
+  flexDirection: "row" as const,
 }

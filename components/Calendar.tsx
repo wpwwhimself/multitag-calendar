@@ -12,7 +12,7 @@ export function Calendar({detailsPopUp} : Props){
 
   const month = [];
 
-  for(var i = 0; i < 60; i++) {
+  for(var i = 0; i < 7; i++) {
     month[i] = new Date(monday);
     month[i].setDate(monday.getDate() + 7*i);
   }
@@ -35,7 +35,7 @@ export function Calendar({detailsPopUp} : Props){
 const style = StyleSheet.create({
   calendar: {
     flex: 1,
-    flexDirection: "row" as const,
+    flexDirection: "column" as const,
     justifyContent: "center" as const,
     alignItems: "center" as const,
     width: "100%",

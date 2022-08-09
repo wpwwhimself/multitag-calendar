@@ -1,17 +1,20 @@
 {
   "events" : [
     {
+      "id" : 1,
       "title" : "Wyjść z domu",
       "datein" : "7.08.2022",
       "cat1" : "dom",
       "cat2" : "ćwiczenia"
     },
     {
+      "id" : 2,
       "title" : "Otworzyć AAAA",
       "datein" : "7.08.2022",
       "cat1" : "zespoły"
     },
     {
+      "id" : 3,
       "title" : "Posprzątać garaż",
       "datein" : "10.08.2022",
       "dateout" : "13.08.2022",
@@ -20,6 +23,7 @@
       "cat3" : "nieopłacone"
     },
     {
+      "id" : 4,
       "title" : "Próba",
       "datein" : "13.08.2022",
       "cat1" : "zespoły",
@@ -27,6 +31,7 @@
       "dateout" : "3.09.2022"
     },
     {
+      "id" : 5,
       "title" : "Śmieci",
       "datein" : "12.08.2022",
       "hours" : "12:00-13:00",
@@ -36,14 +41,16 @@
       "dateout" : "26.08.2022"
     },
     {
+      "id" : 6,
       "title" : "Naoliwić deskę",
       "datein" : "6.08.2022",
       "cat1" : "m&b",
       "cat2" : "deska",
-      "repeat" : "m1"
+      "repeat" : "m2"
     },
     {
-      "title" : "Urodziny",
+      "id" : 7,
+      "title" : "🎂Urodziny",
       "datein" : "26.08.1997",
       "cat1" : "dom",
       "repeat" : "y1"

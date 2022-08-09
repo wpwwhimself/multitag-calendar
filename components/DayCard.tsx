@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { StyleSheet, Text, TouchableHighlight, TouchableNativeFeedback, View } from 'react-native';
 import { bigStyles, clr } from '../assets/bigStyles';
 import * as dateRefine from './dateRefine';
 
@@ -22,23 +21,28 @@ export function DayCard({day, detailsPopUp} : Props) {
   
   return(
     <>
-      <TouchableHighlight onPress={() => detailsPopUp(dateRefine.long(day))} style={{flex: 1}}>
+      <TouchableNativeFeedback
+        style={{flex: 1}}
+        onPress={() => detailsPopUp(dateRefine.long(day))}
+        >
         <View style={[
           style.box,
           weekend && style.weekend,
           past && style.past,
         ]}>
-          <Text style={[bigStyles.header]}>{dateRefine.short(day)}</Text>
+          <Text style={bigStyles.header}>{dateRefine.short(day)}</Text>
           {eventToday.map((val: Event, ind: number) => {return(
             <View key={ind} style={style.event}>
               <Text numberOfLines={1} style={style.eventText}>{val.title}</Text>
               <View style={style.catContainer}>
                 <View style={[style.cat, {backgroundColor: categories[val.cat1 as keyof typeof categories].color}]} />
+                {val.cat2 !== undefined && <View style={[style.cat, {backgroundColor: categories[val.cat2 as keyof typeof categories].color}]} />}
+                {val.cat3 !== undefined && <View style={[style.cat, {backgroundColor: categories[val.cat3 as keyof typeof categories].color}]} />}
               </View>
             </View>
           )})}
         </View>
-      </TouchableHighlight>
+      </TouchableNativeFeedback>
     </>
   )
 }
@@ -50,7 +54,7 @@ const style = StyleSheet.create({
     backgroundColor: clr.workday,
     // borderRadius: 10,
     margin: 1,
-    width: 80
+    height: 80
   },
   weekend: {
     backgroundColor: clr.weekend,

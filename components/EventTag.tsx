@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import cat from '../calendar-events/categories.json';
 
 type Props = {
-  tag: string | undefined
+  tag?: string
 }
 
 export function EventTag({tag}: Props){

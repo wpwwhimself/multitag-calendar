@@ -2,6 +2,7 @@ import eventsJSON from '../calendar-events/events.json';
 import * as dateRefine from './dateRefine';
 
 export type Event = {
+  id: number,
   title: string,
   datein: string,
   dateout?: string,
@@ -12,9 +13,22 @@ export type Event = {
   repeat?: string
 }
 
-export function eventsOfToday(day: Date) : Event[]{
-  const events = eventsJSON.events; //get events one level higher
+const events = eventsJSON.events; //get events one level higher
 
+export function timeDiff(repeat_mode: string, from: Date, to: Date) : number | undefined {
+  switch(repeat_mode){
+    case "d":
+      return Math.ceil((from.getTime() - to.getTime()) / (1000 * 60 * 60 * 24));
+    case "w":
+      return Math.ceil((from.getTime() - to.getTime()) / (1000 * 60 * 60 * 24 * 7));
+    case "m":
+      return dateRefine.diffInMonths(dateRefine.long(from), dateRefine.long(to));
+    case "y":
+      return dateRefine.diffInYears(dateRefine.long(from), dateRefine.long(to));
+  }
+}
+
+export function eventsOfToday(day: Date) : Event[]{
   let eventToday : Event[] = [];
   let x : Event;
   for(x of events) {
@@ -54,4 +68,14 @@ export function eventsOfToday(day: Date) : Event[]{
     }else if(dateRefine.long(day) == x.datein) eventToday.push(x);
   }
   return eventToday;
+}
+
+export function eventInfo(id: number) : Event {
+  let x : Event;
+  for(x of events){
+    if(x.id == id){
+      return x;
+    }
+  }
+  return {} as Event;
 }
